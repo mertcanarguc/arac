@@ -1,0 +1,43 @@
+<% layout("layout") %>
+
+<section class="panel">
+	<header class="panel-heading">
+		<span class="panel-title">
+			Üyeler
+		</span>
+	</header>
+	<div class="panel-body">
+		
+		<div class="table-responsive">
+			<table class="table table-hover" id="datatables-default">
+				<thead>
+					<tr>
+						<th>Ad Soyad</th>
+						<th>İl - İlçe</th>
+						<th>Adres</th>
+						<th>Tel</th>
+						<th>Mail - Kullanıcı Adı</th>
+						<th style="color: white;"> - - - - </th>
+					</tr>
+				</thead>
+				<tbody>
+					<% uye.forEach(element => { %>
+						<tr>
+							<td> <%= element.ad %> <%= element.soyad %> </td>
+							<td> <%= element.sehir %> <%= element.ilce %>  </td>
+							<td> <%= element.adres %>  </td>
+							<td> <%= element.tel %>  </td>
+							<td> <%= element.username %>  </td>
+							<td>
+								<a class="btn btn-danger btn-xs" href="/admin/delete/<%= element._id %>"><i class="fa fa-remove"></i></a>
+								<a class="btn btn-primary btn-xs" href="/admin/delete/<%= element._id %>"><i class="fa fa-edit"></i></a>
+							</td>
+						</tr>
+					<% }) %>
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+
+</section>

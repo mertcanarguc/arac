@@ -1,0 +1,28 @@
+<form action="/users/login" method="post" class="form-additional">
+    <div class="control-group">
+        <label class="control-label" for="inputUsername2">Mail Adresi</label>
+        <div class="controls">
+            <input type="text" name="username" value="" class="form-control" id="inputUsername2" placeholder="Mail Adresi" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="inputPassword1">Şifre</label>
+        <div class="controls">
+            <input type="password" name="password" value="" class="form-control" id="inputPassword1" placeholder="Şifre" />
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="remember" id="remember" value="true" /> Beni hatırla </label>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" formaction="/users/login" class="btn btn-danger">Giriş Yap</button>
+                <a href="#"><em>Şifreni mi unuttun ?</em></a>
+            </div>
+        </div>
+</form>

@@ -1,0 +1,65 @@
+<form action="/users/register" method="post" class="form-additional">
+    <div class="control-group">
+        <label class="control-label">Adınız</label>
+        <div class="controls">
+            <input type="text" name="ad" class="form-control" id="inputNameSurname" placeholder="Adınız" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Soyadınız</label>
+        <div class="controls">
+            <input type="text" name="soyad" class="form-control" id="inputNameSurname" placeholder="Soyadınız" />
+        </div>
+    </div>
+    <div class="control-group col-md-6">
+        <label class="control-label">İliniz</label>
+        <div class="controls">
+            <select v-model="selected" class="form-control" name="sehir">
+                <option v-for="item in sehir" :value="item.il">{{item.il}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="control-group col-md-6">
+        <label class="control-label">İlçeniz</label>
+        <div class="controls">
+            <select class="form-control" name="ilce" v-model="ilcee" v-for="item in sehir" v-if="item.il == selected">
+                <option v-for="ilce in item.ilceleri" :value="ilce">{{ilce}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="control-group col-md-12">
+        <label class="control-label">Adresiniz</label>
+        <div class="controls">
+            <textarea name="adres" cols="40" rows="3" placeholder="Adres" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Email Adresiniz</label>
+        <div class="controls">
+            <input type="text" name="username" class="form-control" id="inputMail" placeholder="Mail Adresiniz" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="inputPassword2">Şifreniz</label>
+        <div class="controls">
+            <input type="password" name="password" class="form-control" id="inputPassword2" placeholder="Şifre" autocomplete="off" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Şifre Tekrar</label>
+        <div class="controls">
+            <input type="password" name="password_confirm" class="form-control" id="inputPasswordConfirm" placeholder="Tekrar" autocomplete="off" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Telefon Numaranız</label>
+        <div class="controls">
+            <input type="text" name="tel" class="form-control" id="inputPhone" placeholder="Telefon" />
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button type="submit" formaction="/users/register" class="btn btn-danger">Kayıt Ol</button>
+        </div>
+    </div>
+</form>

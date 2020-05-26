@@ -1,0 +1,384 @@
+<% layout("layout") %>
+<main class="main section-color-primary">
+	<div class="container">
+		<div class="row content-flex">
+			<div class="col-md-6 content-left" id="map">
+			</div>
+			<div class="col-md-6 content-right">
+				<section class="search-form color-primary">
+					<div class="">
+						<h2 class="search-title">Arama</h2>
+						<form action="#" class="form-horisontal form-primary">
+							<div class="row-fluid clearfix">
+								<div class="col-md-6">
+									<div class="form-group">
+										<select class="form-control selectpicker color-secondary" name="input" >
+											<option value="0">Sahibinden</option>
+											<option value="1">Emlakçıdan</option>
+											<option value="2">İnşaat Firmasından</option>
+											<option value="3">Bankadan</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control color-secondary" placeholder="İstanbul - Şişli . . . . . . . . . . . . . . . . ."  />
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<select class="form-control selectpicker color-secondary" name="input" >
+											<option>Daire</option>
+											<option>Residance</option>
+											<option>Müstakil Ev</option>
+											<option>Villa</option>
+											<option>Çiftlik Evi</option>
+											<option>Yalı</option>
+											<option>Köşk & Konak</option>
+											<option>Yalı Dairesi</option>
+											<option>Yazlık</option>
+											<option>Prefabrik Ev</option>
+											<option>Kooperatif</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<button type="submit" class="btn btn-search focus-color"><i class="fa fa-search icon-white"></i></button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					</section><!-- /.header-search-->
+					<div class="h-side clearfix">
+						<div class="pull-left">
+							<h2 class="h-side-title page-title text-color-primary">Sonuçlar</h2> <span class='h-side-additional'>0</span>
+						</div>
+						<div class="pull-right">
+							<div class="properties-filter">
+								<div class="form-group">
+									<select class="form-control selectpicker select-small" name="filter" id="search">
+										<option value="0">Sıra</option>
+										<option value="1">Fiyat Azalan</option>
+										<option value="2">Fiyat Artan</option>
+									</select>
+								</div>
+								<div class="grid-type">
+									<a href="map_side.html" class="grid active"><i class="fa fa-th"></i></a>
+									<a href="map_side_list.html" class="list"><i class="fa fa-list"></i></a>
+								</div>
+							</div>
+						</div>
+						</div> <!-- /. content-header -->
+						<div class="properties">
+							<!-- <div class="row">
+								<div class="col-md-3 col-sm-6">
+									<div class="property-card card">
+										<div class="property-card-header image-box">
+											<img src="../../../../front/assets/img/placeholders/395x250.png" alt="" class="" />
+											<a href="listing.html" class="property-card-hover">
+												<img src="../../../../front/assets/img/property-hover-arrow.png" alt="" class="left-icon" />
+												<img src="../../../../front/assets/img/plus.png" alt="" class="center-icon" />
+												<img src="../../../../front/assets/img/icon-notice.png" alt="" class="right-icon" />
+											</a>
+										</div>
+										<div class="property-card-tags">
+											<span class="label label-default label-tag-primary">sale</span>
+										</div>
+										<div class="property-card-box card-box card-block">
+											<h3 class="property-card-title"><a href="listing.html">Swimming pool</a></h3>
+											<div class="property-card-descr">This is simply dummy text of the printing and typesetting industry. That has been the industry standard ...</div>
+											<div class="property-preview-footer  clearfix">
+												<div class="property-preview-f-left text-color-primary">
+													<span class="property-card-value">
+														<i class="fa fa-home"></i>House
+													</span>
+													<span class="property-card-value">
+														<i class="fa fa-tint"></i>1
+													</span>
+													<span class="property-card-value">
+														<i class="fa fa-square-o"></i>200m
+													</span>
+													<span class="property-card-value">
+														<i class="fa fa-eur"></i>60 000
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-6">
+									<div class="property-card card">
+										<div class="property-card-header image-box">
+											<img src="../../../../front/assets/img/placeholders/395x250.png" alt="" class="" />
+											<div class="budget"><i class="fa fa-star"></i></div>
+											<a href="listing.html" class="property-card-hover">
+												<img src="../../../../front/assets/img/property-hover-arrow.png" alt="" class="left-icon" />
+												<img src="../../../../front/assets/img/plus.png" alt="" class="center-icon" />
+												<img src="../../../../front/assets/img/icon-notice.png" alt="" class="right-icon" />
+											</a>
+										</div>
+										<div class="property-card-tags">
+											<span class="label label-default label-tag-warning">rent</span>
+										</div>
+										<div class="property-card-box card-box card-block">
+											<h3 class="property-card-title"><a href="listing.html">Backyard with pool</a></h3>
+											<div class="property-card-descr">This is simply dummy text of the printing and typesetting industry. That has been the industry standard ...</div>
+											<div class="property-preview-footer  clearfix">
+												<div class="property-preview-f-left text-color-primary">
+													<span class="property-card-value">
+														<i class="fa fa-home"></i>House
+													</span>
+													<span class="property-card-value">
+														<i class="fa fa-tint"></i>1
+													</span>
+													<span class="property-card-value">
+														<i class="fa fa-square-o"></i>200m
+													</span>
+													<span class="property-card-value">
+														<i class="fa fa-eur"></i>60 000
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-sm-6">
+									<div class="property-card card">
+										<div class="property-card-header image-box">
+											<img src="../../../../front/assets/img/placeholders/395x250.png" alt="" class="" />
+											<a href="listing.html" class="property-card-hover">
+												<img src="../../../../front/assets/img/property-hover-arrow.png" alt="" class="left-icon" />
+												<img src="../../../../front/assets/img/plus.png" alt="" class="center-icon" />
+												<img src="../../../../front/assets/img/icon-notice.png" alt="" class="right-icon" />
+											</a>
+										</div>
+										<div class="property-card-tags">
+											<span class="label label-default label-tag-primary">sale</span>
+										</div>
+										<div class="property-card-box card-box card-block">
+											<h3 class="property-card-title"><a href="listing.html">Modern villa</a></h3>
+											<div class="property-card-descr">This is simply dummy text of the printing and typesetting industry. That has been the industry standard ...</div>
+											<div class="property-preview-footer  clearfix">
+												<div class="property-preview-f-left text-color-primary">
+													<span class="property-card-value">
+														<i class="fa fa-home"></i>House
+													</span>
+													<span class="property-card-value">
+														<i class="fa fa-tint"></i>1
+													</span>
+													<span class="property-card-value">
+														<i class="fa fa-square-o"></i>200m
+													</span>
+													<span class="property-card-value">
+														<i class="fa fa-eur"></i>60 000
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-sm-6">
+									<div class="property-card card">
+										<div class="property-card-header image-box">
+											<img src="../../../../front/assets/img/placeholders/395x250.png" alt="" class="" />
+											<a href="listing.html" class="property-card-hover">
+												<img src="../../../../front/assets/img/property-hover-arrow.png" alt="" class="left-icon" />
+												<img src="../../../../front/assets/img/plus.png" alt="" class="center-icon" />
+												<img src="../../../../front/assets/img/icon-notice.png" alt="" class="right-icon" />
+											</a>
+										</div>
+										<div class="property-card-tags">
+											<span class="label label-default label-tag-warning">rent</span>
+										</div>
+										<div class="property-card-box card-box card-block">
+											<h3 class="property-card-title"><a href="listing.html">House</a></h3>
+											<div class="property-card-descr">This is simply dummy text of the printing and typesetting industry. That has been the industry standard ...</div>
+											<div class="property-preview-footer  clearfix">
+												<div class="property-preview-f-left text-color-primary">
+													<span class="property-card-value">
+														<i class="fa fa-home"></i>House
+													</span>
+													<span class="property-card-value">
+														<i class="fa fa-tint"></i>1
+													</span>
+													<span class="property-card-value">
+														<i class="fa fa-square-o"></i>200m
+													</span>
+													<span class="property-card-value">
+														<i class="fa fa-eur"></i>60 000
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								</div>
+								<nav class="text-center">
+									<ul class="pagination">
+										<li class="page-item"><a class="page-link active" href="#">1</a></li>
+										<li class="page-item"><a class="page-link" href="#">2</a></li>
+										<li class="page-item"><a class="page-link" href="#">3</a></li>
+									</ul>
+								</nav>
+								</div> 
+								<section class="section section-slim section-ads">
+									<h3 class="hidden">Ads</h3>
+									<img src="../../../../front/assets/img/placeholders/730x90.png" alt="" class="center-block" />
+									</section>
+									</div>
+								</div>
+							</div> -->
+							</main><!-- 
+							 <section class="section page-body section-color-primary">
+								<div class="container">
+									<h2 class="section-title text-center"><span>Example Features</span></h2>
+									<div class="row">
+										<div class="col-md-4 col-sm-6">
+											<div class="row">
+												<div class="col-md-3 content-image"><img src="../../../../front/assets/img/placeholders/110x100.png" alt="" /></div>
+												<div class="col-md-9">
+													<h4 class="text-color-primary">Native Multilangual</h4> Natively multilingual, no need to install any addon. Every element can be translated and you can add as many languages as you want.
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<div class="row">
+												<div class="col-md-3 content-image"><img src="../../../../front/assets/img/placeholders/110x100.png" alt="" /></div>
+												<div class="col-md-9">
+													<h4 class="text-color-primary">Easy to customize</h4> Template is based on Bootstrap 3, if you are familiar with Bootstrap you can easily customize this template.
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<div class="row">
+												<div class="col-md-3 content-image"><img src="../../../../front/assets/img/placeholders/110x100.png" alt="" /></div>
+												<div class="col-md-9">
+													<h4 class="text-color-primary">Bootstrap ready</h4> Based on Bootstrap 3 and are easy to customize.
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<div class="row">
+												<div class="col-md-3 content-image"><img src="../../../../front/assets/img/placeholders/110x100.png" alt="" /></div>
+												<div class="col-md-9">
+													<h4 class="text-color-primary">User friendly</h4> Website structure is logical. Managing elements such as pages, estates or images is easily done...
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<div class="row">
+												<div class="col-md-3 content-image"><img src="../../../../front/assets/img/placeholders/110x100.png" alt="" /></div>
+												<div class="col-md-9">
+													<h4 class="text-color-primary">Template System</h4> This is simply dummy text of the printing and typesetting industry.elit...
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<div class="row">
+												<div class="col-md-3 content-image"><img src="../../../../front/assets/img/placeholders/110x100.png" alt="" /></div>
+												<div class="col-md-9">
+													<h4 class="text-color-primary">Robust</h4> Build as easy to use and robust Flat style user interface.
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section> -->
+
+
+<script>
+		mapboxgl.accessToken = 'pk.eyJ1IjoibWVydGNhbmFyZ3VjIiwiYSI6ImNrN3JqM3hxZzA1bngzZXBncm9nZjgxcmkifQ.kb_6-4F5Y3RbJRtIhxo2XQ';
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [35.9025, 35.02683],
+    zoom: 5,
+    attributionControl: false
+});
+
+//ARAMA ARACI
+map.addControl(
+    new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+        language: 'tr-TR',
+        placeholder:"Şehir giriniz"
+
+    })
+);
+//KONTROL ARAÇLARI
+
+map.addControl(new mapboxgl.NavigationControl());
+
+//KONUMU BULMA OPSİYONU
+map.addControl(
+    new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true,
+        },
+        trackUserLocation: true
+    })
+);
+
+// map.addControl(new mapboxgl.FullscreenControl());
+
+//TIKLANILAN YERİN KOORDİNATLARI
+map.on('click', function(e) {
+    document.getElementById('info').innerHTML = JSON.stringify(e.point) + '<br />' + JSON.stringify(e.lngLat.wrap());
+    console.log(e.point);
+    new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML('Seçtiğiz konum')
+        .addTo(map);
+});
+
+map.on('load', function() {
+    // Insert the layer beneath any symbol layer.
+    var layers = map.getStyle().layers;
+
+    var labelLayerId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+            labelLayerId = layers[i].id;
+            break;
+        }
+    }
+
+    map.addLayer({
+            'id': '3d-buildings',
+            'source': 'composite',
+            'source-layer': 'building',
+            'filter': ['==', 'extrude', 'true'],
+            'type': 'fill-extrusion',
+            'minzoom': 15,
+            'paint': {
+                'fill-extrusion-color': '#aaa',
+                'fill-extrusion-height': [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    15,
+                    0,
+                    15.05,
+                    ['get', 'height']
+                ],
+                'fill-extrusion-base': [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    15,
+                    0,
+                    15.05,
+                    ['get', 'min_height']
+                ],
+                'fill-extrusion-opacity': 0.6
+            }
+        },
+        labelLayerId
+    );
+});
+	
+	</script>

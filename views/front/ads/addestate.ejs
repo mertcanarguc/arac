@@ -1,0 +1,318 @@
+<% layout("../layout") %>
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet"href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+type="text/css"/>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+<!-- include libraries(jQuery, bootstrap) -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<section class="top-title">
+				<h1 class="h-side-title page-title page-title-big text-color-primary">EMLAK İLANI EKLE</h1>
+				</section> <!-- /. content-header -->
+				<div class="widget widget-box box-container">
+					<div class="row">
+						<form>
+							<div class="col-md-4">
+								<div id='map' style='width: auto; height: 400px;'></div>
+								<pre id="info">SEÇTİĞİNİZ KONUMUN BİLGİLERİ</pre>
+							</div>
+							<div class="col-md-8">
+								<div class="row">
+									<div class="form-group col-md-12">
+										<label>İlan Başlığı</label>
+										<input type="text" name="title" class="form-control" placeholder="Örn : Beylikdüzü 2 + 1 Kombili Daire">
+									</div>
+									<div class="form-group col-md-3">
+										<label>Kimden</label>
+										<select class="form-control">
+											<option>Sahibinden</option>
+											<option>Emlak Ofisinden</option>
+											<option>İnşaat Firmasından</option>
+											<option>Bankadan</option>
+										</select>
+									</div>
+									<div class="form-group col-md-3">
+										<label>Emlak Tipi</label>
+										<select class="form-control selectpicker color-secondary">
+											<option>Daire</option>
+											<option>Residance</option>
+											<option>Müstakil Ev</option>
+											<option>Villa</option>
+											<option>Çiftlik evi</option>
+											<option>Yalı</option>
+											<option>Köşk & Konak</option>
+											<option>Yalı Dairesi</option>
+											<option>Yazlık</option>
+											<option>Prefabrik ev</option>
+											<option>Kooperatif</option>
+										</select>
+									</div>
+									<div class="form-group col-md-3">
+										<label>Metre Karesi</label>
+										<input type="number" name="m2" class="form-control" placeholder="M2">
+									</div>
+									<div class="form-group col-md-3">
+										<label>Oda Sayısı</label>
+										<select class="form-control">
+											<option>1 + 0</option>
+											<option>1 + 2</option>
+											<option>2 + 0</option>
+											<option>2 + 1</option>
+											<option>2 + 2</option>
+											<option>3 + 1</option>
+											<option>4 + 1</option>
+											<option>4 + 2</option>
+										</select>
+									</div>
+									<div class="form-group col-md-3">
+										<label>Bina Yapım Yılı</label>
+										<input type="number" name="yas" class="form-control" placeholder="Bina yapım yılı">
+									</div>
+									<div class="form-group col-md-3">
+										<label>Bulunduğu Kat</label>
+										<select class="form-control">
+											<option>Kot 1 </option>
+											<option>Kot 2 </option>
+											<option>Kot 3 </option>
+											<option>Kot 4</option>
+											<option>Bodrum Kat</option>
+											<option>Zemin Kat</option>
+											<option>Bahçe Katı</option>
+											<option>Giriş katı</option>
+											<option>Yüksek Giriş</option>
+											<option>Müstakil</option>
+											<option>Villa Tipi</option>
+											<option>Çatı Katı</option>
+											<% for (var i = 1; i <= 20; i++) {%>
+												<option>Kat <%= i %></option>
+											<% } %>
+											
+										</select>
+									</div>
+									<div class="form-group col-md-3">
+										<label>Bina Kaç Kat ?</label>
+										<input type="number" name="binakat" class="form-control" placeholder="Bina Kat Sayısı">
+									</div>
+									<div class="form-group col-md-3">
+										<label>Cephe</label>
+										<select class="form-control" >
+											<option>Kuzey</option>
+											<option>Güney</option>
+											<option>Doğu</option>
+											<option>Batı</option>
+											<option>Kuzey – Doğu</option>
+											<option>Kuzey – Batı</option>
+											<option>Güney – Doğu</option>
+											<option>Güney – Batı</option>
+											<option>Doğu – Kuzey</option>
+											<option>Doğu  -- Güney</option>
+											<option>Batı –Kuzey</option>
+											<option>Batı – Güney</option>
+										</select>
+									</div>
+									<div class="form-group col-md-3">
+										<label>Isıtma</label>
+										<select class="form-control">
+											<option> Yok</option>
+											<option> Soba</option>
+											<option> Doğlagaz ( Kombi) </option>
+											<option> Doğalgaz Sobası</option>
+											<option> Kat Kaloriferi</option>
+											<option> Merkezi</option>
+											<option> Merkezi (pay ölçer)</option>
+											<option> Yerden ısıtma</option>
+											<option> Klima</option>
+											<option> Fancoil Ünitesi</option>
+											<option> Jeotermal </option>
+											<option> Şömine</option>
+											<option> VRV</option>
+											<option> Isı Pompası</option>
+										</select>
+									</div>
+									<div class="form-group col-md-3">
+										<label>Balkon</label>
+										<select class="form-control">
+											<option>Yok</option>
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+									<div class="form-group col-md-3">
+										<label>Eşyalı</label>
+										<select class="form-control">
+											<option>Evet</option>
+											<option>Hayır</option>
+										</select>
+									</div>
+									<div class="form-group col-md-3">
+										<label>Kullanım Durumu</label>
+										<select class="form-control">
+											<option>Boş</option>
+											<option>Kiracılı</option>
+											<option>Mülk Sahibi Oturuyor</option>
+										</select>
+									</div>
+									<div class="form-group col-md-3">
+										<label>Site içerisinde mi ?</label>
+										<select class="form-control">
+											<option>Evet</option>
+											<option>Hayır</option>
+										</select>
+									</div>
+									<hr>
+									<div class="form-group col-md-12">
+										<label>Açıklama</label>
+										  <textarea id="summernote" name="editordata"></textarea>
+									</div>
+									<div class="form-group col-md-12">
+										<button type="submit" class="btn btn-success">İlan Ekle</button>
+									</di>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					</div> <!-- /. widget-AVAILABLE PACKAGES -->
+					</div><!-- /.center-content -->
+				</div>
+			</div>
+
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoibWVydGNhbmFyZ3VjIiwiYSI6ImNrN3JqM3hxZzA1bngzZXBncm9nZjgxcmkifQ.kb_6-4F5Y3RbJRtIhxo2XQ';
+
+	var map = new mapboxgl.Map({
+	    container: 'map',
+	    style: 'mapbox://styles/mapbox/streets-v11',
+	    center: [35.9025, 40.02683],
+	    zoom: 5,
+	    attributionControl: false,
+	    language: 'tr-TR',
+	});
+
+	//ARAMA ARACI
+	map.addControl(
+	    new MapboxGeocoder({
+	        accessToken: mapboxgl.accessToken,
+	        mapboxgl: mapboxgl,
+	        language: 'tr-TR',
+
+	    })
+	);
+	//KONTROL ARAÇLARI
+
+	map.addControl(new mapboxgl.NavigationControl());
+
+	//KONUMU BULMA OPSİYONU
+	map.addControl(
+	    new mapboxgl.GeolocateControl({
+	        positionOptions: {
+	            enableHighAccuracy: true,
+	        },
+	        trackUserLocation: true
+	    })
+	);
+
+	map.addControl(new mapboxgl.FullscreenControl());
+
+	//TIKLANILAN YERİN KOORDİNATLARI
+	map.on('click', function(e) {
+	    document.getElementById('info').innerHTML = JSON.stringify(e.point) + '<br />' + JSON.stringify(e.lngLat.wrap());
+	    console.log(e.point);
+	    new mapboxgl.Popup()
+	        .setLngLat(e.lngLat)
+	        .setHTML('Seçtiğiz konumun koordinatları aşağıdadır.')
+	        .addTo(map);
+	});
+
+	map.on('load', function() {
+	    // Insert the layer beneath any symbol layer.
+	    var layers = map.getStyle().layers;
+
+	    var labelLayerId;
+	    for (var i = 0; i < layers.length; i++) {
+	        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+	            labelLayerId = layers[i].id;
+	            break;
+	        }
+	    }
+
+	    map.addLayer({
+	            'id': '3d-buildings',
+	            'source': 'composite',
+	            'source-layer': 'building',
+	            'filter': ['==', 'extrude', 'true'],
+	            'type': 'fill-extrusion',
+	            'minzoom': 15,
+	            language: 'tr-TR',
+	            'paint': {
+	                'fill-extrusion-color': '#aaa',
+
+	                // use an 'interpolate' expression to add a smooth transition effect to the
+	                // buildings as the user zooms in
+	                'fill-extrusion-height': [
+	                    'interpolate',
+	                    ['linear'],
+	                    ['zoom'],
+	                    15,
+	                    0,
+	                    15.05,
+	                    ['get', 'height']
+	                ],
+	                'fill-extrusion-base': [
+	                    'interpolate',
+	                    ['linear'],
+	                    ['zoom'],
+	                    15,
+	                    0,
+	                    15.05,
+	                    ['get', 'min_height']
+	                ],
+	                'fill-extrusion-opacity': 0.6
+	            }
+	        },
+	        labelLayerId
+	    );
+	});
+</script>
+
+<script type="text/javascript">
+	$('#summernote').summernote({
+        placeholder: 'Lütfen ilanınız hakkında açıklama giriniz...',
+        tabsize: 2,
+        height: 100,
+  toolbar: [
+        ['style', ['style']],
+        ['font', ['bold', 'italic', 'underline', 'clear']],
+        // ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+        //['fontname', ['fontname']],
+       // ['fontsize', ['fontsize']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['height', ['height']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture', 'hr']],
+        //['view', ['fullscreen', 'codeview']],
+        ['help', ['help']]
+      ],
+      });
+</script>
